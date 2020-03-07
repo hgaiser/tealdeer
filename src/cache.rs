@@ -180,7 +180,6 @@ impl Cache {
             OsType::OsX => Some("osx"),
             OsType::SunOs => Some("sunos"),
             OsType::Windows => Some("windows"),
-            OsType::Other => None,
         }
     }
 
