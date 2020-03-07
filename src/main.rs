@@ -55,6 +55,7 @@ const PAGER_COMMAND: &str = "less -R";
 #[clap(about = "A fast TLDR client", author, version)]
 struct Args {
     /// The command to show (e.g. `tar` or `git log`)
+    #[clap(min_values = 1)]
     command: Vec<String>,
 
     /// List all commands in the cache
@@ -62,11 +63,11 @@ struct Args {
     list: bool,
 
     /// Render a specific markdown file
-    #[clap(short = "f", long = "render")]
+    #[clap(short = "f", long = "render", conflicts_with = "command")]
     render: Option<String>,
 
     /// Override the operating system [linux, macos, sunos, windows]
-    #[clap(short = "o", long = "os")]
+    #[clap(short = "o", long = "os", requires = "command")]
     os: Option<OsType>,
 
     /// Override the language
@@ -82,7 +83,7 @@ struct Args {
     clear_cache: bool,
 
     /// Use a pager to page output
-    #[clap(short = "p", long = "pager")]
+    #[clap(short = "p", long = "pager", requires = "command")]
     pager: bool,
 
     /// Suppress informational messages
@@ -90,7 +91,7 @@ struct Args {
     quiet: bool,
 
     /// Display the raw markdown instead of rendering it
-    #[clap(short = "m", long = "markdown")]
+    #[clap(short = "m", long = "markdown", requires = "command")]
     markdown: bool,
 
     /// Show file and directory paths used by tealdeer
