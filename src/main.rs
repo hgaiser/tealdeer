@@ -55,6 +55,8 @@ const PAGER_COMMAND: &str = "less -R";
 #[clap(about = "A fast TLDR client", author, version)]
 #[clap(setting = AppSettings::ArgRequiredElseHelp)]
 #[clap(setting = AppSettings::HelpRequired)]
+#[clap(setting = AppSettings::DeriveDisplayOrder)]
+#[clap(setting = AppSettings::UnifiedHelpMessage)]
 struct Args {
     /// The command to show (e.g. `tar` or `git log`)
     #[clap(min_values = 1)]
@@ -88,13 +90,13 @@ struct Args {
     #[clap(short = 'p', long = "pager", requires = "command")]
     pager: bool,
 
-    /// Suppress informational messages
-    #[clap(short = 'q', long = "quiet")]
-    quiet: bool,
-
     /// Display the raw markdown instead of rendering it
     #[clap(short = 'm', long = "markdown", requires = "command")]
     markdown: bool,
+
+    /// Suppress informational messages
+    #[clap(short = 'q', long = "quiet")]
+    quiet: bool,
 
     /// Show file and directory paths used by tealdeer
     #[clap(long = "show-paths")]
