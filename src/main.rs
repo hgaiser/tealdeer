@@ -59,39 +59,39 @@ struct Args {
     command: Vec<String>,
 
     /// List all commands in the cache
-    #[clap(short = "l", long = "list")]
+    #[clap(short = 'l', long = "list")]
     list: bool,
 
     /// Render a specific markdown file
-    #[clap(short = "f", long = "render", conflicts_with = "command")]
+    #[clap(short = 'f', long = "render", conflicts_with = "command")]
     render: Option<String>,
 
     /// Override the operating system [linux, macos, sunos, windows]
-    #[clap(short = "o", long = "os", requires = "command")]
+    #[clap(short = 'o', long = "os", requires = "command")]
     os: Option<OsType>,
 
     /// Override the language
-    #[clap(short = "L", long = "language")]
+    #[clap(short = 'L', long = "language")]
     language: Option<String>,
 
     /// Update the local cache
-    #[clap(short = "u", long = "update")]
+    #[clap(short = 'u', long = "update")]
     update: bool,
 
     /// Clear the local cache
-    #[clap(short = "c", long = "clear-cache")]
+    #[clap(short = 'c', long = "clear-cache")]
     clear_cache: bool,
 
     /// Use a pager to page output
-    #[clap(short = "p", long = "pager", requires = "command")]
+    #[clap(short = 'p', long = "pager", requires = "command")]
     pager: bool,
 
     /// Suppress informational messages
-    #[clap(short = "q", long = "quiet")]
+    #[clap(short = 'q', long = "quiet")]
     quiet: bool,
 
     /// Display the raw markdown instead of rendering it
-    #[clap(short = "m", long = "markdown", requires = "command")]
+    #[clap(short = 'm', long = "markdown", requires = "command")]
     markdown: bool,
 
     /// Show file and directory paths used by tealdeer
@@ -111,7 +111,7 @@ struct Args {
     color: Option<ColorOptions>,
 
     /// Prints the version
-    #[clap(short = "v", long = "version")]
+    #[clap(short = 'v', long = "version")]
     version: bool,
 }
 
