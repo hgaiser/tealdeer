@@ -15,7 +15,7 @@
 
 ################################################################################
 
-FROM rust AS tealdeer-builder
+FROM rust:1.54 AS tealdeer-builder
 
 WORKDIR /build
 RUN git clone https://github.com/dbrgn/tealdeer.git \
